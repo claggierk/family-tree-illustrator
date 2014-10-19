@@ -53,28 +53,61 @@ def DisplayPeople(people):
     for person in people:
         print person
 
-def DisplayFamilies(families):
-    for family_name, family_members in families.iteritems():
-        print "Family: ", family_name
-        for family_member in family_members:
-            print "  ", family_member
-        print ""
+def DeduceChildren(people):
+    children = {}
+    parents = {}
+    for outer_person in people:
+        is_child = True
+        for inner_person in people:
+            if people[outer_person].name() == people[inner_person].father or people[outer_person].name() == people[inner_person].mother:
+                is_child = False
+                parents[outer_person] = people[outer_person]
+                break
+        if is_child:
+            children[outer_person] = people[outer_person]
+    return parents, children
 
 def GenerateFamilyTree(people):
-    graph = pydot.Dot(graph_type='digraph')
+    graph = pydot.Dot(graph_name='FamilyTree', graph_type='graph', defaultdist='5')#, ranksep='10', size="7.75,10.25")#, overlap='false')
+    graph.set_edge_defaults(color="black", len='1.0', margin='1.0')#, weight="20")#, len='2')
+
+    parents, children = DeduceChildren(people)
     nodes = {}
-    for person in people:
-        person_node = pydot.Node(people[person].name(), style="filled", fillcolor=gDEFAULT)
-        father_node = pydot.Node(people[person].father, style="filled", fillcolor=gBLUE)
-        mother_node = pydot.Node(people[person].mother, style="filled", fillcolor=gPINK)
-        graph.add_node(person_node)
-        graph.add_node(father_node)
-        graph.add_node(mother_node)
-
-        graph.add_edge(pydot.Edge(person_node, father_node, label="", labelfontcolor="#009933", fontsize="10.0", color="blue"))
-        graph.add_edge(pydot.Edge(person_node, mother_node, label="", labelfontcolor="#009933", fontsize="10.0", color="blue"))
-
-    graph.write_png("family-tree.png")
+    edges = []
+    print "Absolute children:"
+    for child in children:
+        print "   ", child
+        me_node = pydot.Node(children[child].name(), style="filled", fillcolor=gDEFAULT)
+        father_node = pydot.Node(children[child].father, style="filled", fillcolor=gBLUE)
+        mother_node = pydot.Node(children[child].mother, style="filled", fillcolor=gPINK)
+        nodes[children[child].name()] = pydot.Node(children[child].name(), style="filled", fillcolor=gDEFAULT)
+        nodes[children[child].father] = pydot.Node(children[child].father, style="filled", fillcolor=gBLUE)
+        nodes[children[child].mother] = pydot.Node(children[child].mother, style="filled", fillcolor=gPINK)
+        edges.append(pydot.Edge(nodes[children[child].name()], nodes[children[child].father]))
+        edges.append(pydot.Edge(nodes[children[child].name()], nodes[children[child].mother]))
+    
+    print "Parents:"
+    for parent in parents:
+        print "   ", parent
+        me_node = ""
+        if parents[parent].name() in nodes:
+            me_node = nodes[parents[parent].name()]
+        else:
+            print "### ERROR: this node should already exist..."
+        if parents[parent].father not in nodes:
+            nodes[parents[parent].father] = pydot.Node(parents[parent].father, style="filled", fillcolor=gBLUE)
+        if parents[parent].mother not in nodes:
+            nodes[parents[parent].mother] = pydot.Node(parents[parent].mother, style="filled", fillcolor=gPINK)
+        edges.append(pydot.Edge(me_node, nodes[parents[parent].father]))
+        edges.append(pydot.Edge(me_node, nodes[parents[parent].mother]))
+    
+    for node in nodes:
+        graph.add_node(nodes[node])
+    for edge in edges:
+        graph.add_edge(edge)
+    
+    graph.write_png("family-tree.png", prog='fdp')
+    # prog=circo|dot|neato|fdp|sfdp|twopi
 
 def main():
     python_script = sys.argv[0]
@@ -83,7 +116,6 @@ def main():
         return
     input_file = sys.argv[1]
     people = PopulatePeople(input_file)
-    DisplayPeople(people)
     GenerateFamilyTree(people)
 
 if __name__ == "__main__":

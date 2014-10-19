@@ -1,0 +1,48 @@
+Ronald Belgian|Ronald's Poppa|Ronald's Poppa's Lady
+Neptune Bear Belgian|Neptune's Poppa|Neptune's Poppa's Lady
+Carkey Belgian|Ronald Belgian|Neptune Bear Belgian
+
+Chris Sequoia|Chris' Poppa|Chris' Poppa's Lady
+Naptime Belgian Sequoia|Ronald Belgian|Neptune Bear Belgian
+Banta Sequoia|Chris Sequoia|Naptime Belgian Sequoia
+John Sequoia|Chris Sequoia|Naptime Belgian Sequoia
+Ellery Sequoia|Chris Sequoia|Naptime Belgian Sequoia
+Lyza Sequoia|Chris Sequoia|Naptime Belgian Sequoia
+Pete Sequoia|Chris Sequoia|Naptime Belgian Sequoia
+
+Rodney Trailblazers|Rodney's Poppa|Rodney's Poppa's Lady
+Roslyn Belgian Trailblazers|Ronald Belgian|Neptune Bear Belgian
+Collin Trailblazers|Rodney Trailblazers|Roslyn Belgian Trailblazers
+Boxer Trailblazers|Rodney Trailblazers|Roslyn Belgian Trailblazers
+Adele Trailblazers|Rodney Trailblazers|Roslyn Belgian Trailblazers
+Lambchops Trailblazers|Rodney Trailblazers|Roslyn Belgian Trailblazers
+Einstein Trailblazers|Rodney Trailblazers|Roslyn Belgian Trailblazers
+
+Edward Dragonslayer|Edward's Poppa|Edward's Poppa's Lady
+Kay Belgian Dragonslayer|Ronald Belgian|Neptune Bear Belgian
+Drogo Dragonslayer|Edward Dragonslayer|Kay Belgian Dragonslayer
+Aye Dragonslayer|Edward Dragonslayer|Kay Belgian Dragonslayer
+Justin Dragonslayer|Edward Dragonslayer|Kay Belgian Dragonslayer
+Samantha Dragonslayer|Edward Dragonslayer|Kay Belgian Dragonslayer
+
+Arnold Sheep|Arnold's Poppa|Arnold's Poppa's Lady
+Diane Belgian Sheep|Ronald Belgian|Neptune Bear Belgian
+Maggie Sheep|Arnold Sheep|Diane Belgian Sheep
+Trent Sheep|Arnold Sheep|Diane Belgian Sheep
+Heeey Sheep|Arnold Sheep|Diane Belgian Sheep
+Nomore Sheep|Arnold Sheep|Diane Belgian Sheep
+Rexburg Sheep|Arnold Sheep|Diane Belgian Sheep
+Tame Sheep|Arnold Sheep|Diane Belgian Sheep
+
+Dino Belgian|Ronald Belgian|Neptune Bear Belgian
+Marta Oak Belgian|Marta's Poppa|Marta's Poppa's Lady
+Kharma Belgian|Dino Belgian|Marta Oak Belgian
+Linda Belgian|Dino Belgian|Marta Oak Belgian
+Wayne Belgian|Dino Belgian|Marta Oak Belgian
+
+James Ninja|James' Poppa|James' Poppa's Lady
+May Belgian Ninja|Ronald Belgian|Neptune Bear Belgian
+Beau Ninja|James Ninja|May Belgian Ninja
+Dillo Ninja|James Ninja|May Belgian Ninja
+Champ Ninja|James Ninja|May Belgian Ninja
+Eword Ninja|James Ninja|May Belgian Ninja
